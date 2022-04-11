@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/todo/static/js/main.044f5593.js",
+    "static/js/377.b56d690b.chunk.js": "/todo/static/js/377.b56d690b.chunk.js",
+    "service-worker.js": "/todo/service-worker.js",
+    "index.html": "/todo/index.html",
+    "main.044f5593.js.map": "/todo/static/js/main.044f5593.js.map",
+    "377.b56d690b.chunk.js.map": "/todo/static/js/377.b56d690b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.044f5593.js"
+  ]
+}
