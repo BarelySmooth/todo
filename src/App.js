@@ -1,7 +1,15 @@
 import React from "react";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Board from "./components/Board/Board";
+import "./App.css";
 
 function App() {
-  return <div className="App">ToDo App</div>;
+  return (
+    <div className="App">
+      <Sidebar />
+      <Board />
+    </div>
+  );
 }
 
 export default App;
