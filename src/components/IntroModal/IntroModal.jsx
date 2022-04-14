@@ -1,12 +1,16 @@
 import React from "react";
 import { useEffect } from "react";
 import introModalStyles from "./IntroModal.module.css";
+import "animate.css";
 
 const IntroModal = (props) => {
   useEffect(() => {
     if (props.show) {
       document.querySelector("#modal").showModal();
       document.querySelector("#modal").style.display = "flex";
+      document
+        .querySelector("#modal")
+        .classList.add("animate__animated", "animate__zoomIn");
     } else {
       document.querySelector("#modal").style.display = "none";
     }
@@ -14,7 +18,7 @@ const IntroModal = (props) => {
 
   return (
     <div id="modal-container" className={introModalStyles.modal_container}>
-      <dialog id="modal" className={introModalStyles.modal}>
+      <dialog id="modal" className={`${introModalStyles.modal}`}>
         <div className={introModalStyles.welcome_header}>Welcome to ToDo!</div>
         <div className={introModalStyles.localstorage_notice}>
           <span

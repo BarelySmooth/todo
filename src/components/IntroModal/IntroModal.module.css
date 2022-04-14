@@ -36,6 +36,10 @@
   bottom: 30px;
 }
 
+.modal button.intro_modal_close:active:hover {
+  background: #2e4ad1;
+}
+
 .modal::backdrop {
   background: rgba(174, 174, 255, 0.417);
   backdrop-filter: blur(10px);
