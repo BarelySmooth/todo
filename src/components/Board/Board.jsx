@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Board.module.css";
+import IntroModal from "../IntroModal/IntroModal";
 
-const Sidebar = (props) => {
+const Board = (props) => {
+  // const [currentModalType, setCurrentModalType] = useState("");
+
+  // useEffect(() => {
+  //   if (!localStorage.getItem("init")) {
+  //     // localStorage.setItem("init", "true");
+  //     setCurrentModalType("intro");
+  //   }
+  // }, []);
+
   return (
     <div id="board">
+      <IntroModal
+        show={localStorage.getItem("init") === "true" ? false : true}
+        closeIntroModal={() => {
+          localStorage.setItem("init", "true");
+        }}
+      />
       <div className={styles.board_header}>
         <h3>No list selected</h3>
       </div>
@@ -11,4 +27,4 @@ const Sidebar = (props) => {
   );
 };
 
-export default Sidebar;
+export default Board;
