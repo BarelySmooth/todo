@@ -1,3 +1,5 @@
+// the really cool thing here is that there is no API/backend here, its all locally stored in the browser
+
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";

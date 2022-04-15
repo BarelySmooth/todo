@@ -1,0 +1,20 @@
+.built_in_lists ul {
+  padding-left: 15px;
+}
+
+.built_in_lists li {
+  font-family: "Montserrat";
+  list-style: none;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: #c7dfff;
+
+  /* Look I'm only trying to center this ok? */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blue_list_icon {
+  color: #c7dfff;
+}
