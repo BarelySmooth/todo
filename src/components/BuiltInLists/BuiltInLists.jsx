@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AppContext } from "../../contexts/appContext";
 import styles from "./BuiltInLists.module.css";
 
 const Board = (props) => {
+  const [appState, setAppState] = useContext(AppContext);
+
   // the value of the "icon" key is what the fonts library calls them
   const arrayOfBuiltInLists = [
     { key: "today", value: "For today", icon: "today" },
@@ -11,8 +14,14 @@ const Board = (props) => {
     { key: "backlog", value: "Backlog", icon: "ac_unit" },
   ];
 
-  const handleBuiltInListClick = (key) => {
-    alert("You clicked on " + key);
+  const handleBuiltInListClick = (id) => {
+    setAppState({
+      ...appState,
+      currentSelectedList: {
+        parentList: "built_in",
+        childList: id,
+      },
+    });
   };
 
   return (
@@ -25,8 +34,15 @@ const Board = (props) => {
               onClick={() => {
                 handleBuiltInListClick(list.key);
               }}
+              className={
+                list.key === appState.currentSelectedList.childList
+                  ? styles.selected_list
+                  : ""
+              }
             >
-              <span class={`material-icons-outlined ${styles.blue_list_icon}`}>
+              <span
+                className={`material-icons-outlined ${styles.blue_list_icon}`}
+              >
                 {list.icon}
               </span>
               {list.value}

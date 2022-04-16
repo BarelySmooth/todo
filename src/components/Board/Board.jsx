@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./Board.module.css";
 import IntroModal from "../IntroModal/IntroModal";
+import { AppContext } from "../../contexts/appContext";
 
 const Board = (props) => {
   // const [currentModalType, setCurrentModalType] = useState("");
@@ -12,6 +13,22 @@ const Board = (props) => {
   //   }
   // }, []);
 
+  const [appState, setAppState] = useContext(AppContext);
+
+  const returnListNameFromID = (id) => {
+    const arrayOfBuiltInLists = [
+      { key: "today", value: "For today", icon: "today" },
+      { key: "all", value: "All todos", icon: "clear_all" },
+      { key: "important", value: "Important Todos", icon: "assignment_late" },
+      { key: "due_soon", value: "Due Soon", icon: "history" },
+      { key: "backlog", value: "Backlog", icon: "ac_unit" },
+    ];
+
+    if (arrayOfBuiltInLists.find((list) => list.key == id)) {
+      return arrayOfBuiltInLists.find((list) => list.key === id).value;
+    }
+  };
+
   return (
     <div id="board">
       <IntroModal
@@ -21,7 +38,7 @@ const Board = (props) => {
         }}
       />
       <div className={styles.board_header}>
-        <h3>No list selected</h3>
+        <h3>{returnListNameFromID(appState.currentSelectedList.childList)}</h3>
       </div>
     </div>
   );

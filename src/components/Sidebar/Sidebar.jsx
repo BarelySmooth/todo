@@ -9,6 +9,10 @@ const Sidebar = (props) => {
         <h3>Todo</h3>
       </div>
       <BuiltInLists />
+      <div className={styles.sidebar_footer}>
+        Open Source on GitHub.{" "}
+        <span className={styles.install_app}>Install App.</span>
+      </div>
     </div>
   );
 };

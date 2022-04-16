@@ -5,9 +5,12 @@
 .built_in_lists li {
   font-family: "Montserrat";
   list-style: none;
-  margin-bottom: 1rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
   cursor: pointer;
   color: #c7dfff;
+  margin-right: 20px;
+  transition: 0.2s;
 
   /* Look I'm only trying to center this ok? */
   display: flex;
@@ -17,4 +20,19 @@
 
 .blue_list_icon {
   color: #c7dfff;
+  user-select: none;
+}
+
+.selected_list {
+  background-color: #edf5ff;
+  padding: 13px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #475566 !important;
+  transition: 0.2s;
+  margin-left: -10px;
+}
+
+.selected_list .blue_list_icon {
+  color: #475566 !important;
 }
