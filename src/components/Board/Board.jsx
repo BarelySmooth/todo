@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./Board.module.css";
 import IntroModal from "../IntroModal/IntroModal";
 import { AppContext } from "../../contexts/appContext";
+import getLS from "../../lib/getLS";
 
 const Board = (props) => {
   // const [currentModalType, setCurrentModalType] = useState("");
@@ -24,8 +25,12 @@ const Board = (props) => {
       { key: "backlog", value: "Backlog", icon: "ac_unit" },
     ];
 
-    if (arrayOfBuiltInLists.find((list) => list.key == id)) {
+    if (arrayOfBuiltInLists.find((list) => list.key === id)) {
       return arrayOfBuiltInLists.find((list) => list.key === id).value;
+    } else {
+      return getLS(localStorage.getItem("todo_data"))[
+        appState.currentSelectedList.parentList
+      ].sub_lists.filter((list) => list.id === id)[0].name;
     }
   };
 
