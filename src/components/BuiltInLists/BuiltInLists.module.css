@@ -11,6 +11,7 @@
   color: #c7dfff;
   margin-right: 20px;
   transition: 0.2s;
+  user-select: none;
 
   /* Look I'm only trying to center this ok? */
   display: flex;
@@ -35,4 +36,9 @@
 
 .selected_list .blue_list_icon {
   color: #475566 !important;
+}
+
+.user_created_list h4 {
+  cursor: default;
+  user-select: none !important;
 }

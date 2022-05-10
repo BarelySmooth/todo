@@ -15,8 +15,8 @@ const App = () => {
         position: 1,
         sub_lists: [
           {
-            id: "list-3958083409809423890",
-            name: "List 1",
+            id: "list-3958083409809423890123",
+            name: "General List 1",
             position: 1,
             todos: [
               {
@@ -41,8 +41,8 @@ const App = () => {
             ],
           },
           {
-            id: "list-7678083409806839090",
-            name: "List 2",
+            id: "list-7678083409806839090165",
+            name: "General List 2",
             position: 2,
             todos: [
               {
@@ -75,8 +75,8 @@ const App = () => {
         position: 1,
         sub_lists: [
           {
-            id: "list-3958083409809423890",
-            name: "List 1",
+            id: "list-3958083409809423890657",
+            name: "Programming List 1",
             position: 1,
             todos: [
               {
@@ -101,8 +101,8 @@ const App = () => {
             ],
           },
           {
-            id: "list-7678083409806839090",
-            name: "List 2",
+            id: "list-7678083409806839090378",
+            name: "Programming List 2",
             position: 2,
             todos: [
               {
