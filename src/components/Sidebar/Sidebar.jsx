@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Sidebar.module.css";
 import BuiltInLists from "../BuiltInLists/BuiltInLists";
 import UserCreatedLists from "../UserCreatedLists/UserCreatedLists";
+import getLS from "../../lib/getLS";
 
 const Sidebar = (props) => {
   return (
@@ -15,6 +16,20 @@ const Sidebar = (props) => {
       <div className={styles.sidebar_footer}>
         Open Source on GitHub.{" "}
         <span className={styles.install_app}>Install App.</span>
+        <br />
+        <br />
+        <button
+          style={{
+            backgroundColor: "#c7dfff",
+            border: "1px solid #d9d9d9",
+            borderRadius: "4px",
+          }}
+          onClick={() => {
+            console.log(getLS(localStorage.getItem("todo_data")));
+          }}
+        >
+          Log todo data to console
+        </button>
       </div>
     </div>
   );
