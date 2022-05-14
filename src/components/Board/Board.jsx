@@ -3,6 +3,7 @@ import styles from "./Board.module.css";
 import IntroModal from "../IntroModal/IntroModal";
 import { AppContext } from "../../contexts/appContext";
 import getLS from "../../lib/getLS";
+import modify_todo_data from "../../lib/modify_todo_data";
 
 const Board = (props) => {
   // const [currentModalType, setCurrentModalType] = useState("");
@@ -38,6 +39,26 @@ const Board = (props) => {
     }
   };
 
+  // document.getElementById("board_header")?.addEventListener(
+  //   "input",
+  //   () => {
+  //     let input = document.getElementById("board_header");
+
+  //     localStorage.setItem(
+  //       "todo_data",
+  //       JSON.stringify(
+  //         modify_todo_data.renameSubList(
+  //           ls(),
+  //           appState.currentSelectedList.parentList,
+  //           appState.currentSelectedList.childList,
+  //           document.getElementById("board_header").innerText
+  //         )
+  //       )
+  //     );
+  //   },
+  //   false
+  // );
+
   return (
     <div id="board">
       <IntroModal
@@ -46,22 +67,24 @@ const Board = (props) => {
           localStorage.setItem("init", "true");
         }}
       />
-      <div className={styles.board_header}>
+      <div className={styles.board_header} id="board_header">
         <h3>{returnListNameFromID(appState.currentSelectedList.childList)}</h3>
       </div>
-      {ls()
-        [appState.currentSelectedList.parentList]?.sub_lists.filter(
-          (sub_list) => sub_list.id == appState.currentSelectedList.childList
-        )[0]
-        .todos.map((list) => {
-          return <div className={styles.todo}>{list.name}</div>;
-        })}
+      <div className={styles.todos_container}>
+        {ls()
+          [appState.currentSelectedList.parentList]?.sub_lists.filter(
+            (sub_list) => sub_list.id == appState.currentSelectedList.childList
+          )[0]
+          .todos.map((list) => {
+            return <div className={styles.todo}>{list.name}</div>;
+          })}
 
-      {console.log(
-        ls()[appState.currentSelectedList.parentList]?.sub_lists.filter(
-          (sub_list) => sub_list.id == appState.currentSelectedList.childList
-        )[0].todos
-      )}
+        {console.log(
+          ls()[appState.currentSelectedList.parentList]?.sub_lists.filter(
+            (sub_list) => sub_list.id == appState.currentSelectedList.childList
+          )[0].todos
+        )}
+      </div>
     </div>
   );
 };
