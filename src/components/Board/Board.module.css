@@ -11,4 +11,15 @@
   margin-right: 20px;
   margin-top: 10px;
   border-radius: 5px;
+  border: 1px solid #5d86ab6e;
+  /* outline: #30304d solid 2px; */
+  user-select: none;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.todo:hover {
+  background-color: #ddebff;
+  border: 1px solid #5d86ab6e;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.085);
 }
