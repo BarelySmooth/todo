@@ -16,6 +16,10 @@ const Board = (props) => {
 
   const [appState, setAppState] = useContext(AppContext);
 
+  const ls = () => {
+    return getLS(localStorage.getItem("todo_data"));
+  };
+
   const returnListNameFromID = (id) => {
     const arrayOfBuiltInLists = [
       { key: "today", value: "For today", icon: "today" },
@@ -45,6 +49,19 @@ const Board = (props) => {
       <div className={styles.board_header}>
         <h3>{returnListNameFromID(appState.currentSelectedList.childList)}</h3>
       </div>
+      {ls()
+        [appState.currentSelectedList.parentList]?.sub_lists.filter(
+          (sub_list) => sub_list.id == appState.currentSelectedList.childList
+        )[0]
+        .todos.map((list) => {
+          return <div className={styles.todo}>{list.name}</div>;
+        })}
+
+      {console.log(
+        ls()[appState.currentSelectedList.parentList]?.sub_lists.filter(
+          (sub_list) => sub_list.id == appState.currentSelectedList.childList
+        )[0].todos
+      )}
     </div>
   );
 };
