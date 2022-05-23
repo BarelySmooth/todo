@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import styles from "./Board.module.css";
 import IntroModal from "../IntroModal/IntroModal";
+import TodoEditModal from "../TodoEditModal/TodoEditModal";
 import { AppContext } from "../../contexts/appContext";
 import getLS from "../../lib/getLS";
 import modify_todo_data from "../../lib/modify_todo_data";
@@ -67,6 +68,19 @@ const Board = (props) => {
           localStorage.setItem("init", "true");
         }}
       />
+
+      <TodoEditModal
+        show={appState.currentModalType === "todo_edit" ? true : false}
+        saveUpdatedData={() => {
+          setAppState({
+            ...appState,
+            currentModalType: null,
+          });
+          console.log("save updated data");
+        }}
+        // selectedTodo={}
+      />
+
       <div className={styles.board_header} id="board_header">
         <h3>{returnListNameFromID(appState.currentSelectedList.childList)}</h3>
       </div>
@@ -76,7 +90,19 @@ const Board = (props) => {
             (sub_list) => sub_list.id == appState.currentSelectedList.childList
           )[0]
           .todos.map((list) => {
-            return <div className={styles.todo}>{list.name}</div>;
+            return (
+              <div
+                className={styles.todo}
+                onClick={() => {
+                  setAppState({
+                    ...appState,
+                    currentModalType: "todo_edit",
+                  });
+                }}
+              >
+                {list.name}
+              </div>
+            );
           })}
 
         {console.log(

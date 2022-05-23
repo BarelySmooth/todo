@@ -1,0 +1,75 @@
+.modal {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  width: 500px;
+  min-height: 200px;
+  transition: 0.3s;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.163);
+  padding-top: 50px;
+  padding-bottom: 25px;
+  font-family: "Inter", sans-serif;
+}
+
+.modal .welcome_header {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+
+  color: #30304d;
+}
+
+.modal button.intro_modal_close {
+  background: #4967fd;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #a5c0ff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  position: absolute;
+  bottom: 30px;
+}
+
+.modal button.intro_modal_close:active:hover {
+  background: #2e4ad1;
+}
+
+.modal::backdrop {
+  background: rgba(174, 174, 255, 0.417);
+  backdrop-filter: blur(10px);
+
+  animation: backdropTransition 0.3s;
+}
+
+@keyframes backdropTransition {
+  from {
+    background: rgba(174, 174, 255, 0);
+    backdrop-filter: blur(0px);
+  }
+  to {
+    background: rgba(174, 174, 255, 0.417);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.localstorage_notice {
+  font-size: small;
+  background: #ffdb97;
+  padding: 10px 20px;
+  transition: 0.3s;
+  border-radius: 7px;
+  border: 3px solid #ffb15e;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iconOrange {
+  color: #fb8c00;
+}

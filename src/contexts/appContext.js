@@ -15,6 +15,7 @@ export const AppContextProvider = (props) => {
       parentList: "built_in",
       childList: "today",
     },
+    currentModalType: null,
   });
 
   return (
