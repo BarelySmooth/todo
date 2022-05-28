@@ -97,6 +97,7 @@ const Board = (props) => {
                   setAppState({
                     ...appState,
                     currentModalType: "todo_edit",
+                    currentOpenedTodo: list,
                   });
                 }}
               >
